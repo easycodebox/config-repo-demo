@@ -1,3 +1,2 @@
-logging:
-  level:
-    root: debug
+info:
+  group: spring cloud
