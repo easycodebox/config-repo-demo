@@ -1,2 +1,3 @@
+# 所有应用共用配置
 info:
-  group: spring cloud
+  common: common config by all apps
