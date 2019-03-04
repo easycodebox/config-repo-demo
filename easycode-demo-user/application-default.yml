@@ -1,0 +1,46 @@
+server:
+  port: 8200
+logging:
+  level:
+    root: info
+    # 输出OpenFeign日志
+    com.easycodebox.demo.api: debug
+management:
+  endpoint:
+    health:
+      # 测试使用，正式环境需要配置成 when_authorized
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        # 测试使用 - 开放所有端口
+        include: "*"
+eureka:
+  instance:
+    prefer-ip-address: true
+hystrix:
+  command:
+    # default配置全局HystrixCommand
+    default:
+      # 配置HystrixCommand线程执行的超时时间，默认1000 - 自行调优
+      execution.isolation.thread.timeoutInMilliseconds: 5000
+ribbon:
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    request:
+      enabled: true
+      min-request-size: 1024
+    response:
+      enabled: true
+  client:
+    config:
+      default:
+        loggerLevel: BASIC
+        # 配置默认的连接超时时间，默认1000（Spring Cloud Ribbon提供的配置） - 自行调优
+        connectTimeout: 1000
+        # 配置默认的读超时时间，默认1000（Spring Cloud Ribbon提供的配置） - 自行调优
+        readTimeout: 3000

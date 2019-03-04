@@ -1,0 +1,43 @@
+server:
+  port: 7200
+logging:
+  level:
+    root: info
+    # 使用HttpClient组件发送请求时输出相关请求日志
+    org.apache.http.impl.conn.DefaultHttpClientConnectionOperator: debug
+    # 输出OpenFeign日志
+    org.springframework.retry.support.RetryTemplate: debug
+management:
+  endpoint:
+    health:
+      # 测试使用，正式环境需要配置成 when_authorized
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        # 测试使用 - 开放所有端口
+        include: "*"
+eureka:
+  instance:
+    prefer-ip-address: true
+hystrix:
+  command:
+    # default配置全局HystrixCommand
+    default:
+      # 配置HystrixCommand线程执行的超时时间，Zuul默认4000（参考AbstractRibbonCommand#getHystrixTimeout()） - 自行调优
+      execution.isolation.thread.timeoutInMilliseconds: 5000
+ribbon:
+  # 配置Ribbon默认的连接超时时间，默认1000 - 自行调优
+  ConnectTimeout: 1000
+  # 配置Ribbon默认的读超时时间，默认1000 - 自行调优
+  ReadTimeout: 1000
+  # 默认值 0
+  MaxAutoRetries: 0
+  # 默认值 1
+  MaxAutoRetriesNextServer: 1
+zuul:
+  retryable: true
+  # 当后端服务响应较慢，你想快速响应超时异常，建议配置成 thread 且 use-separate-thread-pools: true
+  ribbon-isolation-strategy: semaphore
+  semaphore:
+    max-semaphores: 100

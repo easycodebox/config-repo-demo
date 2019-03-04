@@ -1,8 +1,5 @@
 server:
-  port: 7100
-logging:
-  level:
-    root: info
+  port: 7300
 management:
   endpoint:
     health:
@@ -16,6 +13,7 @@ management:
 eureka:
   instance:
     prefer-ip-address: true
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:7000/eureka/
+turbine:
+  app-config: easycode-zuul,easycode-demo-org,easycode-demo-shop,easycode-demo-user
+  aggregator:
+    cluster-config: EASYCODE-ZUUL,EASYCODE-DEMO-ORG,EASYCODE-DEMO-SHOP,EASYCODE-DEMO-USER
