@@ -1,8 +1,6 @@
 info:
   desc: config server
 spring:
-  application:
-    name: @project.artifactId@
   cloud:
     config:
       server:
