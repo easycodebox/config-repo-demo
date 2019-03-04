@@ -1,2 +1,15 @@
 info:
   desc: config server
+spring:
+  application:
+    name: @project.artifactId@
+  cloud:
+    config:
+      server:
+        git:
+          # clone到本地的路径
+          basedir: /data/config-repo-1
+          deleteUntrackedBranches: true
+          clone-on-start: true
+          # 刷新Git仓库的时间间隔，0意味着每次请求都会更新
+          refresh-rate: 60
