@@ -1,2 +1,21 @@
-info:
-  profile: dev
+server:
+  port: 7100
+logging:
+  level:
+    root: info
+management:
+  endpoint:
+    health:
+      # 测试使用，正式环境需要配置成 when_authorized
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        # 测试使用 - 开放所有端口
+        include: "*"
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7000/eureka/
