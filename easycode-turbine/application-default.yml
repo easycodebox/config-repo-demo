@@ -14,6 +14,6 @@ eureka:
   instance:
     prefer-ip-address: true
 turbine:
-  app-config: easycode-zuul,easycode-demo-org,easycode-demo-shop,easycode-demo-user
+  app-config: easycode-zuul,easycode-gateway,easycode-demo-org,easycode-demo-shop,easycode-demo-user
   aggregator:
-    cluster-config: EASYCODE-ZUUL,EASYCODE-DEMO-ORG,EASYCODE-DEMO-SHOP,EASYCODE-DEMO-USER
+    cluster-config: EASYCODE-ZUUL,EASYCODE-GATEWAY,EASYCODE-DEMO-ORG,EASYCODE-DEMO-SHOP,EASYCODE-DEMO-USER
