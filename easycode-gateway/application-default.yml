@@ -1,0 +1,59 @@
+server:
+  port: 7400
+logging:
+  level:
+    root: info
+    # 打印请求的Mapping映射信息
+    #org.springframework.cloud.gateway.handler.RoutePredicateHandlerMapping: debug
+    # 打印Filter
+    #org.springframework.cloud.gateway.handler.FilteringWebHandler: debug
+    # 打印连接的整个流程信息
+    #reactor.netty.resources.PooledConnectionProvider: debug
+    # 打印请求的详细信息
+    #reactor.netty.channel.ChannelOperationsHandler: debug
+    # 打印重试信息
+    reactor.retry.DefaultRetry: debug
+    #org.springframework.cloud.gateway.filter.factory.RetryGatewayFilterFactory: trace
+management:
+  endpoint:
+    health:
+      # 测试使用，正式环境需要配置成 when_authorized
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        # 测试使用 - 开放所有端口
+        include: "*"
+eureka:
+  instance:
+    prefer-ip-address: true
+hystrix:
+  command:
+    # default配置全局HystrixCommand
+    default:
+      # 【注】Spring Cloud Gateway的execution.isolation.strategy默认使用SEMAPHORE
+      # 配置HystrixCommand线程执行的超时时间，默认1000 - 自行调优
+      execution.isolation.thread.timeoutInMilliseconds: 5000
+      # 默认值10
+      execution.isolation.semaphore.maxConcurrentRequests: 100
+      # 默认值10
+      fallback.isolation.semaphore.maxConcurrentRequests: 10
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          # 网关路由时匹配service-id小写字母
+          lower-case-service-id: true
+          predicates:
+          # 定义请求服务路径规则
+          - Path='/'+serviceId+'/**'
+          filters:
+          # 去除path的serviceId前缀
+          - RewritePath='/' + serviceId + '/(?<remaining>.*)', '/${remaining}'
+          # 启用Hystrix
+          - Hystrix=serviceId
+          # 启用retry，需要放置在Hystrix后面。因Spring Cloud Gateway不能使用Ribbon的retry功能，只能使用此RetryGatewayFilter
+          # 默认重试规则：1.GET请求 2.服务端返回的状态码为5xx 3.异常IOException或TimeoutException
+          - Retry
