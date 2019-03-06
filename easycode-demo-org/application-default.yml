@@ -44,6 +44,3 @@ feign:
         connectTimeout: 1000
         # 配置默认的读超时时间，默认1000（Spring Cloud Ribbon提供的配置） - 自行调优
         readTimeout: 3000
-
-# 配置中心的配置不会覆盖 system-properties【注意 - 建议使用默认配置】
-spring.cloud.config.override-system-properties: false
