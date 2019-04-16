@@ -1,5 +1,8 @@
 server:
   port: 7200
+spring:
+  http:
+    encoding.force: true
 logging:
   level:
     root: info
@@ -17,6 +20,22 @@ management:
       exposure:
         # 测试使用 - 开放所有端口
         include: "*"
+security:
+  oauth2:
+    client:
+      clientId: oauth-common-client
+      clientSecret: mysteel
+      # client获取accessToken URI
+      accessTokenUri: http://oauth.easycodebox.local:7500/oauth/token
+      # 用户授权URI
+      userAuthorizationUri: http://oauth.easycodebox.local:7500/oauth/authorize
+      # 是否使用当前请求的uri最为redirect-uri，如果开启则优先于pre-established-redirect-uri。默认开启
+      use-current-uri: false
+      # 预定义redirect-uri
+      pre-established-redirect-uri: "http://localhost:${server.port}/login"
+    resource:
+      jwt:
+        key-uri: http://oauth.easycodebox.local:7500/oauth/token_key
 eureka:
   instance:
     prefer-ip-address: true

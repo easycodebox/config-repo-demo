@@ -1,5 +1,8 @@
 server:
   port: 7300
+spring:
+  http:
+    encoding.force: true
 management:
   endpoint:
     health:

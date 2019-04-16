@@ -1,5 +1,8 @@
 server:
   port: 8000
+spring:
+  http:
+    encoding.force: true
 logging:
   level:
     root: info
@@ -15,6 +18,12 @@ management:
       exposure:
         # 测试使用 - 开放所有端口
         include: "*"
+security:
+  oauth2:
+    resource:
+      id: ${spring.application.name}
+      jwt:
+        key-uri: http://oauth.easycodebox.local:7500/oauth/token_key
 eureka:
   instance:
     prefer-ip-address: true
