@@ -55,6 +55,7 @@ ribbon:
   # 默认值 1
   MaxAutoRetriesNextServer: 1
 zuul:
+  sensitive-headers: "Cookie, Set-Cookie"
   retryable: true
   # 当后端服务响应较慢，你想快速响应超时异常，建议配置成 thread 且 use-separate-thread-pools: true
   ribbon-isolation-strategy: semaphore
