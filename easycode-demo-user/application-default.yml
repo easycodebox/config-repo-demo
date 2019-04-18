@@ -53,3 +53,4 @@ feign:
         connectTimeout: 1000
         # 配置默认的读超时时间，默认1000（Spring Cloud Ribbon提供的配置） - 自行调优
         readTimeout: 3000
+        requestInterceptors: org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor
