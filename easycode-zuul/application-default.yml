@@ -59,5 +59,8 @@ zuul:
   retryable: true
   # 当后端服务响应较慢，你想快速响应超时异常，建议配置成 thread 且 use-separate-thread-pools: true
   ribbon-isolation-strategy: semaphore
+  ribbon:
+    eager-load:
+      enabled: true
   semaphore:
     max-semaphores: 100
