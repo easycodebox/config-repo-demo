@@ -1,5 +1,8 @@
 server:
   port: 7200
+  error:
+    include-exception: true
+    include-stacktrace: on_trace_param
 spring:
   http:
     encoding.force: true
