@@ -10,6 +10,7 @@ logging:
     org.apache.http.impl.conn.DefaultHttpClientConnectionOperator: debug
     # 输出OpenFeign日志
     org.springframework.retry.support.RetryTemplate: debug
+    #org.springframework.security: debug
 management:
   endpoint:
     health:

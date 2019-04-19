@@ -8,6 +8,7 @@ logging:
     root: info
     # 输出OpenFeign日志
     com.easycodebox.demo.api: debug
+    #org.springframework.security: debug
 management:
   endpoint:
     health:
