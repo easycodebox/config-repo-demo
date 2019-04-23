@@ -48,12 +48,12 @@ hystrix:
     # default配置全局HystrixCommand
     default:
       # 配置HystrixCommand线程执行的超时时间，Zuul默认4000（参考AbstractRibbonCommand#getHystrixTimeout()） - 自行调优
-      execution.isolation.thread.timeoutInMilliseconds: 5000
+      execution.isolation.thread.timeoutInMilliseconds: 9000
 ribbon:
   # 配置Ribbon默认的连接超时时间，默认1000 - 自行调优
   ConnectTimeout: 1000
   # 配置Ribbon默认的读超时时间，默认1000 - 自行调优
-  ReadTimeout: 1000
+  ReadTimeout: 3000
   # 默认值 0
   MaxAutoRetries: 0
   # 默认值 1

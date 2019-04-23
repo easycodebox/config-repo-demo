@@ -35,7 +35,7 @@ hystrix:
     # default配置全局HystrixCommand
     default:
       # 配置HystrixCommand线程执行的超时时间，默认1000 - 自行调优
-      execution.isolation.thread.timeoutInMilliseconds: 5000
+      execution.isolation.thread.timeoutInMilliseconds: 8000
 ribbon:
   MaxAutoRetries: 0
   MaxAutoRetriesNextServer: 1
