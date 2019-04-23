@@ -1,7 +1,5 @@
 spring:
   cloud:
     config:
-      # 适用于开发环境，本地配置文件优先于远程配置。生产环境不建议使用
+      # 适用于开发环境，本地配置优先于远程配置。生产环境不建议使用
       override-none: true
-      # 适用于开发环境，本地系统变量优先于远程配置。生产环境不建议使用
-      override-system-properties: true
