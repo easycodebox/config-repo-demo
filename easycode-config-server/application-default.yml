@@ -3,10 +3,6 @@ server:
 spring:
   http:
     encoding.force: true
-  cloud:
-    config:
-      # 适用于开发环境，本地配置优先。生产环境不建议使用
-      override-none: true
 logging:
   level:
     root: info
