@@ -3,3 +3,5 @@ spring:
     config:
       # 适用于开发环境，本地配置优先于远程配置。生产环境不建议使用
       override-none: true
+      # 配置中心的配置不会覆盖 system-properties【注意 - 建议使用默认配置】
+      override-system-properties: false
