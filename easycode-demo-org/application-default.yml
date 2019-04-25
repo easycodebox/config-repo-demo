@@ -56,5 +56,3 @@ feign:
         connectTimeout: 1000
         # 配置默认的读超时时间，默认1000（Spring Cloud Ribbon提供的配置） - 自行调优
         readTimeout: 3000
-        # 获取AccessToken存放于Feign的请求头中。首先会从容器中获取OAuth2FeignRequestInterceptor Bean，没有则尝试创建对象
-        requestInterceptors: com.easycodebox.spring.cloud.oauth2.DefaultOAuth2FeignRequestInterceptor
