@@ -28,7 +28,7 @@ security:
   oauth2:
     client:
       clientId: oauth-common-client
-      clientSecret: mysteel
+      clientSecret: 123456
       # client获取accessToken URI
       accessTokenUri: http://oauth.easycodebox.local:7500/oauth/token
       # 用户授权URI
