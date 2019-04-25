@@ -9,8 +9,7 @@ logging:
 management:
   endpoint:
     health:
-      # 测试使用，正式环境需要配置成 when_authorized
-      show-details: always
+      show-details: when_authorized
   endpoints:
     web:
       exposure:
