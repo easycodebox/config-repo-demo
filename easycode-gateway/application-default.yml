@@ -38,7 +38,13 @@ security:
       pre-established-redirect-uri: "http://localhost:${server.port}/login"
     resource:
       jwt:
-        key-uri: http://oauth.easycodebox.local:7500/oauth/token_key
+        key-value: |
+          -----BEGIN PUBLIC KEY-----
+          MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGTdwymDuETEvshW9HIiUvLwMX
+          WXXAebrh4IznaaLLMd0aUGNyiMHkf8YG99g/hJ5hVc9dGliDsQO4+Fmtfp/fwTY2
+          7uCTelb9iVz3zloEICdG1Fk2a17SI6qvlUInaMGbIdq+8aPg/19edx3qoGamct6P
+          /TaZ1pQEluaOAxGqQQIDAQAB
+          -----END PUBLIC KEY-----
 eureka:
   instance:
     prefer-ip-address: true

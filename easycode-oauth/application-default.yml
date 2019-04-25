@@ -90,8 +90,6 @@ security:
       # refresh-token有效时间，DefaultTokenServices默认值: 60 * 60 * 24 * 30 = 30d
       refresh-token-validity-seconds: 3600
     authorization:
-      # 允许通过URL地址访问公钥
-      token-key-access: "permitAll"
       jwt:
         key-value: |
           -----BEGIN RSA PRIVATE KEY-----
@@ -109,11 +107,3 @@ security:
           cH8gQdD0jIffmG3zRQJBAJaF67Tj76sQfgJeDyuu58JJeaSZkbyJUP7zH2DupX1H
           vbWltSAEcVquLS4f9hJirQYGi32wzTdzcYZiU5Fx8q8=
           -----END RSA PRIVATE KEY-----
-        # 借用key-alias存储公钥
-        key-alias: |
-          -----BEGIN PUBLIC KEY-----
-          MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGTdwymDuETEvshW9HIiUvLwMX
-          WXXAebrh4IznaaLLMd0aUGNyiMHkf8YG99g/hJ5hVc9dGliDsQO4+Fmtfp/fwTY2
-          7uCTelb9iVz3zloEICdG1Fk2a17SI6qvlUInaMGbIdq+8aPg/19edx3qoGamct6P
-          /TaZ1pQEluaOAxGqQQIDAQAB
-          -----END PUBLIC KEY-----
