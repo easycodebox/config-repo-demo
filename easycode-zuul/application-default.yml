@@ -6,6 +6,9 @@ server:
 spring:
   http:
     encoding.force: true
+  mvc:
+    # 禁用 SpringMVC favicon功能，否则 /**/favicon.ico 都会被Zuul拦截
+    favicon.enabled: false
 logging:
   level:
     root: info
