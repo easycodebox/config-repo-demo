@@ -17,10 +17,10 @@ spring:
         max-wait: 30s
         max-active: 8
         max-idle: 8
-    session:
-      redis:
-        # 存储SpringSession数据至Redis时，KEY的前缀
-        namespace: spring:session:zuul
+  session:
+    redis:
+      # 存储SpringSession数据至Redis时，KEY的前缀
+      namespace: spring:session:zuul
 logging:
   level:
     root: info

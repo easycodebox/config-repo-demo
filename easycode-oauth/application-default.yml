@@ -47,10 +47,10 @@ spring:
         max-wait: 30s
         max-active: 8
         max-idle: 8
-    session:
-      redis:
-        # 存储SpringSession数据至Redis时，KEY的前缀
-        namespace: spring:session:oauth
+  session:
+    redis:
+      # 存储SpringSession数据至Redis时，KEY的前缀
+      namespace: spring:session:oauth
 server:
   port: 7500
   # 如果Server和Client都部署在本地，共同使用localhost，context-path都是 '/'，此时他们会共用一个cookie，导致丢失之前的state值而授权失败。
