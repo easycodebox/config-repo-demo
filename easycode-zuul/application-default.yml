@@ -9,6 +9,18 @@ spring:
   mvc:
     # 禁用 SpringMVC favicon功能，否则 /**/favicon.ico 都会被Zuul拦截
     favicon.enabled: false
+  redis:
+    host: 192.168.200.105
+    port: 6379
+    lettuce:
+      pool:
+        max-wait: 30s
+        max-active: 8
+        max-idle: 8
+    session:
+      redis:
+        # 存储SpringSession数据至Redis时，KEY的前缀
+        namespace: spring:session:zuul
 logging:
   level:
     root: info
