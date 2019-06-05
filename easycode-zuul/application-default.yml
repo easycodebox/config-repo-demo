@@ -21,6 +21,14 @@ spring:
     redis:
       # 存储SpringSession数据至Redis时，KEY的前缀
       namespace: spring:session:zuul
+  security:
+    logout:
+      # OAuth2Server的logout url
+      server-logout-url: http://oauth.easycodebox.local:7500/logout
+      # 获取targetUrl的参数名
+      target-url-parameter: targetUrl
+      # 使用Referer header获取targetUrl
+      use-referer: true
 logging:
   level:
     root: info
