@@ -55,6 +55,17 @@ spring:
     logout:
       # 获取targetUrl的参数名
       target-url-parameter: targetUrl
+  freemarker:
+    # 是否缓存View对象，参考: AbstractCachingViewResolver#resolveViewName()
+    cache: true
+    # settings配置，参考：freemarker.core.Configurable
+    settings:
+      locale: zh_CN
+      classic_compatible: true
+      tag_syntax: auto_detect
+      # 生产环境时间可配置长点，默认值：5s
+      template_update_delay: 5s
+
 server:
   port: 7500
   # 如果Server和Client都部署在本地，共同使用localhost，context-path都是 '/'，此时他们会共用一个cookie，导致丢失之前的state值而授权失败。
